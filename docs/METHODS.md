@@ -10,6 +10,8 @@ The sampling functions take one row per patient. A report state and a binary tar
 
 `sample_training_panels` returns explicit, random and class-matched all-state arms at supplied budgets and seeds. It uses deterministic canonical patient ordering and separate random priorities. Budgets are nested within an arm. Sampling is without replacement; overlapping membership between arms is allowed. The class-matched arm exactly matches the explicit arm's target-positive and target-negative counts at each seed and budget.
 
+The legacy API key `prevalence_matched` is this exact coded-class-matched arm, described as "class-matched" in the paper. It matches both class counts, not just approximate prevalence.
+
 `sample_addback` constructs two class-matched pools: explicit plus uncertain, and explicit plus blank. It samples new memberships from each eligible pool; it does **not** keep every anchor patient and append extra rows. Equal size and class counts do not imply equal underlying case mix.
 
 `cross_memberships` exchanges the positive and negative membership sources of two equal-size, class-matched parent panels. The four arms preserve class counts. `factorial_contrasts` calculates conditional source differences, their interaction and the total contrast. This is a computational factorial comparison, not randomized clinical assignment or causal identification.

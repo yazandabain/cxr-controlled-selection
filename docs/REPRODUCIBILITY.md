@@ -24,11 +24,28 @@ The builder produces seven quantitative figure pairs (SVG/PDF) and fifteen table
 
 Tests independently check plotted composition fractions and the AUROC pair sum, compare generated table cells with retained exports and inspect the public diagram for external or embedded image content. The retained quantitative SVGs were checked against the verified renderer before packaging. Presentation replay verifies the scientific values without requiring byte identity across platforms. PDF metadata, font libraries and heatmap encoding can affect file bytes.
 
+## Figure filenames and paper numbering
+
+Figure filenames retain historical asset identifiers so that the verified exports and renderer stay aligned. They are not the final paper numbers. The gap from `figure5` to `figure7` is intentional; no main-paper or supplement figure is missing from this release.
+
+| Asset stem | Final paper position |
+| --- | --- |
+| `figure1_design` | Figure 1 |
+| `figure2_selection` | Figure 2 |
+| `figure4_controlled_contrasts` | Figure 3 |
+| `figure7_selection_controls` | Figure 4 |
+| `figure3_learning_curves` | Figure 5 |
+| `figure5_era` | Figure 6 |
+| `figureS1_reference_transfer` | Figure S1 |
+| `figure8_pair_accounting` | Figure S2 |
+
+The manuscript itself is not distributed in this repository. These positions identify the reviewed paper's six main figures and two supplement figures, not a separate public manuscript release.
+
 ## Runtime and CI
 
 Python 3.13 is the release-test runtime. The package requires Python 3.11 or later because its numerical dependencies require that minimum, but other versions are not claimed as tested. Official package metadata supplies Python 3.13 wheels for the pinned numerical, plotting and tree dependencies on Windows and Linux. CI installs the package from a fresh checkout on Python 3.13 on both operating systems and runs the complete public checks.
 
-The workflow uses read-only repository permissions, pinned GitHub Action commits, shared test-environment constraints and no patient data or secrets. The constraints record the verified Python 3.13 environment; platform-specific dependencies remain governed by their packages. Its badge will show a result only after the repository is pushed and CI runs. Local success is not a claim that hosted CI has already passed.
+The workflow uses read-only repository permissions, pinned GitHub Action commits, shared test-environment constraints and no patient data or secrets. The release checker scans the current files, index, reachable historical blobs, commit identities and messages, ref names, and annotated tag identities and messages, including nested tag objects. GitHub no-reply addresses are allowed only in Git identity fields; tags targeting non-commit payloads are rejected. This narrow automated check supplements the reviewed inventory; it does not prove compliance. The constraints record the verified Python 3.13 environment; platform-specific dependencies remain governed by their packages. Its badge will show a result only after the repository is pushed and CI runs. Local success is not a claim that hosted CI has already passed.
 
 ## Aggregate disclosure boundary
 
