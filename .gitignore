@@ -16,6 +16,7 @@
 !/figures/
 !/THIRD_PARTY.md
 !/third_party/
+!/requirements-ci.txt
 
 # Source-only boundary; generated outputs and local configuration stay private.
 **/__pycache__/

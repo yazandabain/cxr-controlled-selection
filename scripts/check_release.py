@@ -15,6 +15,7 @@ from pathlib import Path
 
 
 FILES = {
+    'requirements-ci.txt',
     'THIRD_PARTY.md', 'third_party/DEJAVU_LICENSE.txt',
     '.gitattributes', '.gitignore', 'README.md', 'NOTICE.md', 'CITATION.cff', 'pyproject.toml',
     'docs/DATA_ACCESS.md', 'docs/METHODS.md', 'examples/synthetic_study.py',

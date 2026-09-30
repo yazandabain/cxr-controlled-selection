@@ -33,7 +33,7 @@ The controlled comparisons keep the coded reference and test population fixed. T
 The full values are in [aggregate results](results/aggregates) and [readable tables](results/tables). To rebuild all quantitative figures and numerical tables without restricted inputs:
 
 ```bash
-python -m pip install ".[trees,figures,test]"
+python -m pip install -c requirements-ci.txt ".[trees,figures,test]"
 python scripts/build_assets.py --out ../cxr-public-assets
 ```
 
@@ -50,7 +50,7 @@ python -m venv .venv
 # Linux or macOS, instead
 source .venv/bin/activate
 
-python -m pip install -e ".[trees,figures,test]"
+python -m pip install -c requirements-ci.txt -e ".[trees,figures,test]"
 python -m unittest discover -s tests -v
 python examples/synthetic_study.py
 ```

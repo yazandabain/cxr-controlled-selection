@@ -10,7 +10,7 @@ Neither check reruns the original patient-level study. Cohort extraction, featur
 ## Commands
 
 ```bash
-python -m pip install ".[trees,figures,test]"
+python -m pip install -c requirements-ci.txt ".[trees,figures,test]"
 python -m pip check
 python -m unittest discover -s tests -v
 python examples/synthetic_study.py --draws 200
@@ -22,13 +22,13 @@ Choose a fresh output directory: existing outputs are not overwritten. Generated
 
 The builder produces seven quantitative figure pairs (SVG/PDF) and fifteen tables (CSV/Markdown/LaTeX fragments). It records every plotted aggregate entry and derived display calculation in a numeric ledger, then verifies entries against a fresh source reread. The conceptual Figure 1 has editable draw.io source and SVG/PDF exports; edit or export it with draw.io rather than redrawing it in Python. No draw.io executable or journal style file is bundled.
 
-Tests independently check plotted composition fractions and the AUROC pair sum, compare generated table cells with retained exports and inspect the public diagram for external or embedded image content. SVG bytes are checked against the retained exports with the pinned renderer. PDF timestamps, producer metadata and font-library differences can affect byte identity across platforms; scientific values are checked separately.
+Tests independently check plotted composition fractions and the AUROC pair sum, compare generated table cells with retained exports and inspect the public diagram for external or embedded image content. The retained quantitative SVGs were checked against the verified renderer before packaging. Presentation replay verifies the scientific values without requiring byte identity across platforms. PDF metadata, font libraries and heatmap encoding can affect file bytes.
 
 ## Runtime and CI
 
 Python 3.13 is the release-test runtime. The package requires Python 3.11 or later because its numerical dependencies require that minimum, but other versions are not claimed as tested. Official package metadata supplies Python 3.13 wheels for the pinned numerical, plotting and tree dependencies on Windows and Linux. CI installs the package from a fresh checkout on Python 3.13 on both operating systems and runs the complete public checks.
 
-The workflow uses read-only repository permissions, pinned GitHub Action commits and no patient data or secrets. Its badge will show a result only after the repository is pushed and CI runs. Local success is not a claim that hosted CI has already passed.
+The workflow uses read-only repository permissions, pinned GitHub Action commits, shared test-environment constraints and no patient data or secrets. The constraints record the verified Python 3.13 environment; platform-specific dependencies remain governed by their packages. Its badge will show a result only after the repository is pushed and CI runs. Local success is not a claim that hosted CI has already passed.
 
 ## Aggregate disclosure boundary
 

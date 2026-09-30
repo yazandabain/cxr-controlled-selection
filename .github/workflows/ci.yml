@@ -26,9 +26,11 @@ jobs:
         with:
           python-version: '3.13'
           cache: pip
-          cache-dependency-path: pyproject.toml
+          cache-dependency-path: |
+            pyproject.toml
+            requirements-ci.txt
       - name: Install public package
-        run: python -m pip install ".[trees,figures,test]"
+        run: python -m pip install -c requirements-ci.txt ".[trees,figures,test]"
       - name: Check installed dependencies
         run: python -m pip check
       - name: Run complete public tests
