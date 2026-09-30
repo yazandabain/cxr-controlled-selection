@@ -1,0 +1,5 @@
+Representation / head,$\Delta_F$ [95\% CI],$\Delta_G$ [95\% CI]
+Scores / Logistic,"0.015 [0.009, 0.021]","-0.008 [-0.013, -0.004]"
+Scores / Boosted trees,"0.016 [0.010, 0.023]","-0.009 [-0.013, -0.005]"
+CheXpert / Logistic,"0.032 [0.021, 0.042]","-0.004 [-0.010, 0.002]"
+CheXpert / Boosted trees,"0.028 [0.017, 0.039]","-0.011 [-0.018, -0.004]"

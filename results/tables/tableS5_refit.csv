@@ -1,0 +1,7 @@
+Single-anchor contrast,Estimate [refitting 95\% interval]
+Image AUROC,"0.019 [-0.005, 0.058]"
+Fusion AUROC,"0.015 [-0.005, 0.053]"
+Gain AUROC,"-0.003 [-0.019, 0.013]"
+Image AP,"0.018 [-0.012, 0.047]"
+Fusion AP,"0.017 [-0.017, 0.051]"
+Gain AP,"-0.001 [-0.021, 0.025]"
