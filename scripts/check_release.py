@@ -75,6 +75,66 @@ def git(root, *args, binary=False):
     return result.stdout if binary else result.stdout.decode('utf-8')
 
 
+def inspect_git_metadata(raw, label):
+    """Allow no-reply identity fields, not arbitrary text in annotations."""
+    if b'\0' in raw or len(raw) > 1_000_000:
+        return [f'{label}: unexpected metadata encoding/size']
+    try:
+        text = raw.decode('utf-8')
+    except UnicodeDecodeError:
+        return [f'{label}: not UTF-8 metadata']
+    header, separator, message = text.partition('\n\n')
+    if not separator:
+        return [f'{label}: missing metadata/message separator']
+    header = re.sub(
+        r'(?m)^(author|committer|tagger) (.+) <[A-Za-z0-9+._-]+@users\.noreply\.github\.com> ',
+        r'\1 \2 <GitHub no-reply> ', header,
+    )
+    return issues_in_text(header + separator + message, label)
+
+
+def check_tags(root):
+    """Inspect reachable annotated tag objects, including nested annotations."""
+    issues, annotations, seen = [], [], set()
+    refs = git(root, 'for-each-ref', '--format=%(refname)\t%(objecttype)\t%(objectname)')
+    for line in refs.splitlines():
+        reference, kind, oid = line.split('\t')
+        issues.extend(issues_in_text(reference, 'Git ref name'))
+        if reference.startswith('refs/tags/') and kind not in {'commit', 'tag'}:
+            issues.append(f'Git ref {reference}: tag target is not a commit or annotation')
+        while kind == 'tag' and oid not in seen:
+            seen.add(oid)
+            label = f'Git tag object {oid[:8]}'
+            raw = git(root, 'cat-file', 'tag', oid, binary=True)
+            issues.extend(inspect_git_metadata(raw, label))
+            try:
+                header = raw.decode('utf-8').partition('\n\n')[0]
+            except UnicodeDecodeError:
+                break
+            fields = {}
+            for entry in header.splitlines():
+                key, separator, value = entry.partition(' ')
+                if not separator or key in fields:
+                    issues.append(f'{label}: malformed/duplicate tag header')
+                fields[key] = value
+            target = fields.get('object', '')
+            target_type = fields.get('type', '')
+            if not re.fullmatch(r'(?:[0-9a-f]{40}|[0-9a-f]{64})', target):
+                issues.append(f'{label}: invalid target object ID')
+                break
+            if not fields.get('tag') or not re.fullmatch(
+                r'.+ <[^<>\r\n]+> [0-9]+ [+-][0-9]{4}', fields.get('tagger', ''),
+            ):
+                issues.append(f'{label}: missing/invalid tag name or tagger metadata')
+            actual_type = git(root, 'cat-file', '-t', target).strip()
+            annotations.append({'object': oid, 'target': target, 'target_type': actual_type})
+            if actual_type != target_type or actual_type not in {'commit', 'tag'}:
+                issues.append(f'{label}: invalid or non-commit target type')
+                break
+            oid, kind = target, actual_type
+    return {'annotated_tags': annotations, 'issues': issues}
+
+
 def inspect_aggregate(value, trail=''):
     issues = []
     if isinstance(value, dict):
@@ -184,14 +244,21 @@ def check(root, check_git=True):
         inventory.append({'path': relative, 'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()})
     missing = FILES - {item['path'] for item in inventory}
     issues.extend(f'{name}: missing reviewed file' for name in sorted(missing))
-    historical_blobs, commits = 0, 0
+    historical_blobs, commits, annotated_tags = 0, 0, []
     if check_git:
         if not (root / '.git').is_dir():
             issues.append('No local Git repository; history not checked')
         else:
+            tag_review = check_tags(root)
+            annotated_tags = tag_review['annotated_tags']
+            issues.extend(tag_review['issues'])
             seen = set()
             for commit in git(root, 'rev-list', '--all').splitlines():
                 commits += 1
+                issues.extend(inspect_git_metadata(
+                    git(root, 'cat-file', 'commit', commit, binary=True),
+                    f'Git commit metadata {commit[:8]}',
+                ))
                 for line in git(root, 'ls-tree', '-r', commit).splitlines():
                     fields, relative = line.split('\t', 1)
                     mode, kind, oid = fields.split()
@@ -201,10 +268,6 @@ def check(root, check_git=True):
                         issues.extend(inspect_bytes(git(root, 'cat-file', 'blob', oid, binary=True), f'Git blob {oid[:8]}', relative))
                         seen.add(oid)
             historical_blobs = len(seen)
-            metadata = git(root, 'log', '--all', '--format=%an <%ae> | %cn <%ce>')
-            # Commit addresses may use GitHub's verified-profile no-reply convention.
-            metadata = re.sub(r'[A-Za-z0-9+._-]+@users\.noreply\.github\.com', '', metadata)
-            issues.extend(issues_in_text(metadata, 'Git commit metadata'))
             staged = git(root, 'ls-files', '--stage').splitlines()
             for line in staged:
                 fields, relative = line.split('\t', 1)
@@ -212,7 +275,8 @@ def check(root, check_git=True):
                 if relative not in FILES or mode != '100644' or stage != '0':
                     issues.append(f'Git index: unexpected path/mode {relative}')
                 issues.extend(inspect_bytes(git(root, 'cat-file', 'blob', oid, binary=True), f'Git index {relative}', relative))
-    return {'files': inventory, 'commits': commits, 'historical_blobs': historical_blobs, 'issues': issues}
+    return {'files': inventory, 'commits': commits, 'historical_blobs': historical_blobs,
+            'annotated_tags': annotated_tags, 'issues': issues}
 
 
 if __name__ == '__main__':
