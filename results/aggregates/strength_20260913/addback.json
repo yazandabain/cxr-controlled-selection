@@ -1,0 +1,802 @@
+{
+  "analysis": "Exploratory coded-class/patient-matched report-state add-back; not causal attribution",
+  "conditioning": "Same coded test panel and common transforms/tuning; fixed twenty fits per pool",
+  "primary_new_contrast": "explicit_uncertain_minus_explicit_blank__fusion AUROC",
+  "groups": {
+    "explicit__fusion": {
+      "auroc": {
+        "point": 0.7566250002638896,
+        "ci95": [
+          0.735946414865485,
+          0.7774284674584991
+        ]
+      },
+      "average_precision": {
+        "point": 0.23771566438908373,
+        "ci95": [
+          0.20821840856281443,
+          0.27322827290849244
+        ]
+      }
+    },
+    "explicit__image": {
+      "auroc": {
+        "point": 0.7073329631842393,
+        "ci95": [
+          0.6847874445877664,
+          0.7300558450558186
+        ]
+      },
+      "average_precision": {
+        "point": 0.1826292763750464,
+        "ci95": [
+          0.16073684956156475,
+          0.21110052583456315
+        ]
+      }
+    },
+    "explicit_blank__fusion": {
+      "auroc": {
+        "point": 0.7897350390450998,
+        "ci95": [
+          0.7723609205567196,
+          0.8070128882461971
+        ]
+      },
+      "average_precision": {
+        "point": 0.2661853160843259,
+        "ci95": [
+          0.2346683318259835,
+          0.30246733670580445
+        ]
+      }
+    },
+    "explicit_blank__image": {
+      "auroc": {
+        "point": 0.7428713753009221,
+        "ci95": [
+          0.7232572880300017,
+          0.7624970217668878
+        ]
+      },
+      "average_precision": {
+        "point": 0.2017497714702079,
+        "ci95": [
+          0.17792036133168931,
+          0.2308310736707804
+        ]
+      }
+    },
+    "explicit_uncertain__fusion": {
+      "auroc": {
+        "point": 0.7504299464691224,
+        "ci95": [
+          0.7317038223488136,
+          0.7694071657227638
+        ]
+      },
+      "average_precision": {
+        "point": 0.2365541836953789,
+        "ci95": [
+          0.20982020058990236,
+          0.2693880627858373
+        ]
+      }
+    },
+    "explicit_uncertain__image": {
+      "auroc": {
+        "point": 0.6980629978276611,
+        "ci95": [
+          0.6782939810800565,
+          0.7183289003652252
+        ]
+      },
+      "average_precision": {
+        "point": 0.17407784553626826,
+        "ci95": [
+          0.15498769512990154,
+          0.19973284561418084
+        ]
+      }
+    },
+    "prevalence_matched__fusion": {
+      "auroc": {
+        "point": 0.7882621306513711,
+        "ci95": [
+          0.7711219371279787,
+          0.8052489214846689
+        ]
+      },
+      "average_precision": {
+        "point": 0.2693449419837518,
+        "ci95": [
+          0.23737357311921434,
+          0.3055995083197465
+        ]
+      }
+    },
+    "prevalence_matched__image": {
+      "auroc": {
+        "point": 0.7429072115036146,
+        "ci95": [
+          0.7237032414938404,
+          0.7620655771019422
+        ]
+      },
+      "average_precision": {
+        "point": 0.2056583657256763,
+        "ci95": [
+          0.18154252571475654,
+          0.2344534511446674
+        ]
+      }
+    },
+    "explicit__gain": {
+      "auroc": {
+        "point": 0.04929203707965024,
+        "ci95": [
+          0.03755588032346943,
+          0.06023902494126953
+        ]
+      },
+      "average_precision": {
+        "point": 0.05508638801403734,
+        "ci95": [
+          0.03703977859372589,
+          0.07347592441169583
+        ]
+      }
+    },
+    "prevalence_matched__gain": {
+      "auroc": {
+        "point": 0.04535491914775647,
+        "ci95": [
+          0.03380926075027383,
+          0.056728230960109004
+        ]
+      },
+      "average_precision": {
+        "point": 0.0636865762580755,
+        "ci95": [
+          0.04241078623796007,
+          0.08584434759918183
+        ]
+      }
+    },
+    "explicit_uncertain__gain": {
+      "auroc": {
+        "point": 0.0523669486414613,
+        "ci95": [
+          0.04036978359285683,
+          0.06416491478449643
+        ]
+      },
+      "average_precision": {
+        "point": 0.062476338159110634,
+        "ci95": [
+          0.0437680210890461,
+          0.08204482788385763
+        ]
+      }
+    },
+    "explicit_blank__gain": {
+      "auroc": {
+        "point": 0.04686366374417772,
+        "ci95": [
+          0.034330436959523834,
+          0.05918098982821773
+        ]
+      },
+      "average_precision": {
+        "point": 0.06443554461411799,
+        "ci95": [
+          0.043556977553163935,
+          0.08709412248997837
+        ]
+      }
+    }
+  },
+  "contrasts": {
+    "prevalence_matched_minus_explicit__fusion": {
+      "auroc": {
+        "point": 0.031637130387481505,
+        "ci95": [
+          0.02078993724368414,
+          0.04186956143675987
+        ]
+      },
+      "average_precision": {
+        "point": 0.031629277594668076,
+        "ci95": [
+          0.01488433625048476,
+          0.047073977804807494
+        ]
+      }
+    },
+    "prevalence_matched_minus_explicit__image": {
+      "auroc": {
+        "point": 0.03557424831937528,
+        "ci95": [
+          0.023049550056652983,
+          0.04764371242535211
+        ]
+      },
+      "average_precision": {
+        "point": 0.023029089350629917,
+        "ci95": [
+          0.009570095779390175,
+          0.036208073465419766
+        ]
+      }
+    },
+    "prevalence_matched_minus_explicit__gain": {
+      "auroc": {
+        "point": -0.003937117931893774,
+        "ci95": [
+          -0.010381230166628664,
+          0.0021010111573702794
+        ]
+      },
+      "average_precision": {
+        "point": 0.00860018824403816,
+        "ci95": [
+          -0.0009842791542292262,
+          0.018231196946592344
+        ]
+      }
+    },
+    "explicit_uncertain_minus_explicit__fusion": {
+      "auroc": {
+        "point": -0.006195053794767147,
+        "ci95": [
+          -0.014560755270851076,
+          0.001988461511073736
+        ]
+      },
+      "average_precision": {
+        "point": -0.001161480693704836,
+        "ci95": [
+          -0.014514415925551406,
+          0.011291326112608925
+        ]
+      }
+    },
+    "explicit_uncertain_minus_explicit__image": {
+      "auroc": {
+        "point": -0.009269965356578203,
+        "ci95": [
+          -0.019014699467316976,
+          6.36353801646176e-06
+        ]
+      },
+      "average_precision": {
+        "point": -0.008551430838778129,
+        "ci95": [
+          -0.020803001930311992,
+          0.003013492059742974
+        ]
+      }
+    },
+    "explicit_uncertain_minus_explicit__gain": {
+      "auroc": {
+        "point": 0.0030749115618110556,
+        "ci95": [
+          -0.001735910119000253,
+          0.007817088432321422
+        ]
+      },
+      "average_precision": {
+        "point": 0.007389950145073293,
+        "ci95": [
+          0.0012391413672608888,
+          0.013349875109156249
+        ]
+      }
+    },
+    "explicit_blank_minus_explicit__fusion": {
+      "auroc": {
+        "point": 0.033110038781210216,
+        "ci95": [
+          0.02286637959865861,
+          0.043844987852830045
+        ]
+      },
+      "average_precision": {
+        "point": 0.028469651695242154,
+        "ci95": [
+          0.012994058719697743,
+          0.04332908967303645
+        ]
+      }
+    },
+    "explicit_blank_minus_explicit__image": {
+      "auroc": {
+        "point": 0.03553841211668274,
+        "ci95": [
+          0.023416061468370365,
+          0.04713019144917938
+        ]
+      },
+      "average_precision": {
+        "point": 0.019120495095161505,
+        "ci95": [
+          0.006940741120090675,
+          0.03145404162955115
+        ]
+      }
+    },
+    "explicit_blank_minus_explicit__gain": {
+      "auroc": {
+        "point": -0.0024283733354725223,
+        "ci95": [
+          -0.008809478362658732,
+          0.003797935893398834
+        ]
+      },
+      "average_precision": {
+        "point": 0.00934915660008065,
+        "ci95": [
+          -7.206001374673711e-07,
+          0.01915366237914979
+        ]
+      }
+    },
+    "explicit_uncertain_minus_explicit_blank__fusion": {
+      "auroc": {
+        "point": -0.03930509257597736,
+        "ci95": [
+          -0.04850883570663366,
+          -0.03022509162723889
+        ]
+      },
+      "average_precision": {
+        "point": -0.02963113238894699,
+        "ci95": [
+          -0.042557031703289075,
+          -0.016906265566521826
+        ]
+      }
+    },
+    "explicit_uncertain_minus_explicit_blank__image": {
+      "auroc": {
+        "point": -0.04480837747326094,
+        "ci95": [
+          -0.05515021233835551,
+          -0.033255531073018325
+        ]
+      },
+      "average_precision": {
+        "point": -0.027671925933939634,
+        "ci95": [
+          -0.03961148722507825,
+          -0.016076189194379926
+        ]
+      }
+    },
+    "explicit_uncertain_minus_explicit_blank__gain": {
+      "auroc": {
+        "point": 0.005503284897283578,
+        "ci95": [
+          -8.284768211054559e-05,
+          0.010940699955671315
+        ]
+      },
+      "average_precision": {
+        "point": -0.0019592064550073562,
+        "ci95": [
+          -0.009645359771173406,
+          0.005387015716106402
+        ]
+      }
+    }
+  },
+  "new_training_composition": {
+    "explicit_uncertain": [
+      {
+        "seed": 20260910,
+        "positive": 589,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 952,
+          "explicit_positive": 764,
+          "uncertain": 1356
+        }
+      },
+      {
+        "seed": 20260911,
+        "positive": 601,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 918,
+          "explicit_positive": 748,
+          "uncertain": 1406
+        }
+      },
+      {
+        "seed": 20260912,
+        "positive": 585,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 938,
+          "explicit_positive": 766,
+          "uncertain": 1368
+        }
+      },
+      {
+        "seed": 20260913,
+        "positive": 581,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 941,
+          "explicit_positive": 725,
+          "uncertain": 1406
+        }
+      },
+      {
+        "seed": 20260914,
+        "positive": 582,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 941,
+          "explicit_positive": 738,
+          "uncertain": 1393
+        }
+      },
+      {
+        "seed": 20260915,
+        "positive": 584,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 930,
+          "explicit_positive": 755,
+          "uncertain": 1387
+        }
+      },
+      {
+        "seed": 20260916,
+        "positive": 559,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 926,
+          "explicit_positive": 760,
+          "uncertain": 1386
+        }
+      },
+      {
+        "seed": 20260917,
+        "positive": 580,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 931,
+          "explicit_positive": 783,
+          "uncertain": 1358
+        }
+      },
+      {
+        "seed": 20260918,
+        "positive": 587,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 929,
+          "explicit_positive": 781,
+          "uncertain": 1362
+        }
+      },
+      {
+        "seed": 20260919,
+        "positive": 596,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 910,
+          "explicit_positive": 778,
+          "uncertain": 1384
+        }
+      },
+      {
+        "seed": 20260920,
+        "positive": 583,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 983,
+          "explicit_positive": 741,
+          "uncertain": 1348
+        }
+      },
+      {
+        "seed": 20260921,
+        "positive": 587,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 939,
+          "explicit_positive": 777,
+          "uncertain": 1356
+        }
+      },
+      {
+        "seed": 20260922,
+        "positive": 579,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 921,
+          "explicit_positive": 744,
+          "uncertain": 1407
+        }
+      },
+      {
+        "seed": 20260923,
+        "positive": 567,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 930,
+          "explicit_positive": 750,
+          "uncertain": 1392
+        }
+      },
+      {
+        "seed": 20260924,
+        "positive": 585,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 955,
+          "explicit_positive": 750,
+          "uncertain": 1367
+        }
+      },
+      {
+        "seed": 20260925,
+        "positive": 576,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 919,
+          "explicit_positive": 772,
+          "uncertain": 1381
+        }
+      },
+      {
+        "seed": 20260926,
+        "positive": 576,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 945,
+          "explicit_positive": 739,
+          "uncertain": 1388
+        }
+      },
+      {
+        "seed": 20260927,
+        "positive": 586,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 935,
+          "explicit_positive": 760,
+          "uncertain": 1377
+        }
+      },
+      {
+        "seed": 20260928,
+        "positive": 592,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 940,
+          "explicit_positive": 738,
+          "uncertain": 1394
+        }
+      },
+      {
+        "seed": 20260929,
+        "positive": 582,
+        "states": {
+          "blank": 0,
+          "explicit_negative": 913,
+          "explicit_positive": 776,
+          "uncertain": 1383
+        }
+      }
+    ],
+    "explicit_blank": [
+      {
+        "seed": 20260910,
+        "positive": 589,
+        "states": {
+          "blank": 2497,
+          "explicit_negative": 201,
+          "explicit_positive": 374,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260911,
+        "positive": 601,
+        "states": {
+          "blank": 2469,
+          "explicit_negative": 205,
+          "explicit_positive": 398,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260912,
+        "positive": 585,
+        "states": {
+          "blank": 2516,
+          "explicit_negative": 175,
+          "explicit_positive": 381,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260913,
+        "positive": 581,
+        "states": {
+          "blank": 2512,
+          "explicit_negative": 172,
+          "explicit_positive": 388,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260914,
+        "positive": 582,
+        "states": {
+          "blank": 2494,
+          "explicit_negative": 188,
+          "explicit_positive": 390,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260915,
+        "positive": 584,
+        "states": {
+          "blank": 2518,
+          "explicit_negative": 198,
+          "explicit_positive": 356,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260916,
+        "positive": 559,
+        "states": {
+          "blank": 2523,
+          "explicit_negative": 182,
+          "explicit_positive": 367,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260917,
+        "positive": 580,
+        "states": {
+          "blank": 2517,
+          "explicit_negative": 165,
+          "explicit_positive": 390,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260918,
+        "positive": 587,
+        "states": {
+          "blank": 2504,
+          "explicit_negative": 179,
+          "explicit_positive": 389,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260919,
+        "positive": 596,
+        "states": {
+          "blank": 2499,
+          "explicit_negative": 180,
+          "explicit_positive": 393,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260920,
+        "positive": 583,
+        "states": {
+          "blank": 2475,
+          "explicit_negative": 206,
+          "explicit_positive": 391,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260921,
+        "positive": 587,
+        "states": {
+          "blank": 2505,
+          "explicit_negative": 189,
+          "explicit_positive": 378,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260922,
+        "positive": 579,
+        "states": {
+          "blank": 2504,
+          "explicit_negative": 188,
+          "explicit_positive": 380,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260923,
+        "positive": 567,
+        "states": {
+          "blank": 2511,
+          "explicit_negative": 180,
+          "explicit_positive": 381,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260924,
+        "positive": 585,
+        "states": {
+          "blank": 2487,
+          "explicit_negative": 197,
+          "explicit_positive": 388,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260925,
+        "positive": 576,
+        "states": {
+          "blank": 2511,
+          "explicit_negative": 181,
+          "explicit_positive": 380,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260926,
+        "positive": 576,
+        "states": {
+          "blank": 2512,
+          "explicit_negative": 190,
+          "explicit_positive": 370,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260927,
+        "positive": 586,
+        "states": {
+          "blank": 2499,
+          "explicit_negative": 191,
+          "explicit_positive": 382,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260928,
+        "positive": 592,
+        "states": {
+          "blank": 2500,
+          "explicit_negative": 181,
+          "explicit_positive": 391,
+          "uncertain": 0
+        }
+      },
+      {
+        "seed": 20260929,
+        "positive": 582,
+        "states": {
+          "blank": 2501,
+          "explicit_negative": 176,
+          "explicit_positive": 395,
+          "uncertain": 0
+        }
+      }
+    ]
+  },
+  "draws": 2000,
+  "seed": 20262910,
+  "multiplicity": "All intervals exploratory and pointwise; primary new contrast chosen before add-back fitting"
+}

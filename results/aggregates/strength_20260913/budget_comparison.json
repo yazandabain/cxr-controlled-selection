@@ -1,0 +1,234 @@
+{
+  "analysis": "Exploratory class-matched fitting-budget comparison with full explicit fusion anchor",
+  "conditioning": "Saved fitted models; mean of 20 per-fit metrics versus one fixed full-explicit fit; not total annotation efficiency",
+  "replicates": 5000,
+  "seed": 20269313,
+  "full_explicit_patients": 3937,
+  "full_explicit_positive": 745,
+  "groups": {
+    "score14_3072": {
+      "auroc": 0.8335310218015002,
+      "average_precision": 0.32286983361771593,
+      "fits": 20,
+      "training_positive_range": [
+        559,
+        601
+      ]
+    },
+    "score14_512": {
+      "auroc": 0.824101350481229,
+      "average_precision": 0.3007891270815908,
+      "fits": 20,
+      "training_positive_range": [
+        75,
+        111
+      ]
+    },
+    "chex128_1536": {
+      "auroc": 0.7705699891418242,
+      "average_precision": 0.2492006504567467,
+      "fits": 20,
+      "training_positive_range": [
+        257,
+        317
+      ]
+    },
+    "chex128_3072": {
+      "auroc": 0.7882621306513711,
+      "average_precision": 0.2693449419837518,
+      "fits": 20,
+      "training_positive_range": [
+        559,
+        601
+      ]
+    },
+    "score14_1536": {
+      "auroc": 0.8300652194259313,
+      "average_precision": 0.31625576132295036,
+      "fits": 20,
+      "training_positive_range": [
+        257,
+        317
+      ]
+    },
+    "chex128_512": {
+      "auroc": 0.7343212039134471,
+      "average_precision": 0.21774047661783777,
+      "fits": 20,
+      "training_positive_range": [
+        75,
+        111
+      ]
+    },
+    "score14_full": {
+      "auroc": 0.8176364784043337,
+      "average_precision": 0.31080266831610415,
+      "fits": 1,
+      "training_positive_range": [
+        745,
+        745
+      ]
+    },
+    "chex128_full": {
+      "auroc": 0.7631510243489141,
+      "average_precision": 0.24541376540082982,
+      "fits": 1,
+      "training_positive_range": [
+        745,
+        745
+      ]
+    }
+  },
+  "contrasts": {
+    "score14_512_auroc": {
+      "point": 0.006464872076895278,
+      "pointwise_ci95": [
+        -0.0022728580378995333,
+        0.015318365221950382
+      ],
+      "joint_band95": [
+        -0.0052980871372359795,
+        0.018227831291026536
+      ]
+    },
+    "score14_512_average_precision": {
+      "point": -0.010013541234513368,
+      "pointwise_ci95": [
+        -0.027615702346395005,
+        0.007442248814998561
+      ],
+      "joint_band95": [
+        -0.033650308903231015,
+        0.013623226434204279
+      ]
+    },
+    "score14_1536_auroc": {
+      "point": 0.012428741021597522,
+      "pointwise_ci95": [
+        0.005459348779487058,
+        0.019527716308310197
+      ],
+      "joint_band95": [
+        0.002982367876608801,
+        0.021875114166586246
+      ]
+    },
+    "score14_1536_average_precision": {
+      "point": 0.00545309300684621,
+      "pointwise_ci95": [
+        -0.008090414595908518,
+        0.019199576612307732
+      ],
+      "joint_band95": [
+        -0.012810763331373098,
+        0.02371694934506552
+      ]
+    },
+    "score14_3072_auroc": {
+      "point": 0.01589454339716645,
+      "pointwise_ci95": [
+        0.00940277918058299,
+        0.022528307164590842
+      ],
+      "joint_band95": [
+        0.007014882328267644,
+        0.024774204466065257
+      ]
+    },
+    "score14_3072_average_precision": {
+      "point": 0.012067165301611782,
+      "pointwise_ci95": [
+        -0.0004161870341770401,
+        0.024327270646205417
+      ],
+      "joint_band95": [
+        -0.004455583502982623,
+        0.028589914106206187
+      ]
+    },
+    "chex128_512_auroc": {
+      "point": -0.028829820435467002,
+      "pointwise_ci95": [
+        -0.04091615475233733,
+        -0.016296975836276137
+      ],
+      "joint_band95": [
+        -0.04545028094328826,
+        -0.012209359927645737
+      ]
+    },
+    "chex128_512_average_precision": {
+      "point": -0.02767328878299205,
+      "pointwise_ci95": [
+        -0.04664264211143491,
+        -0.009535623260493377
+      ],
+      "joint_band95": [
+        -0.05270092950554599,
+        -0.0026456480604381168
+      ]
+    },
+    "chex128_1536_auroc": {
+      "point": 0.007418964792910043,
+      "pointwise_ci95": [
+        -0.003782172186606264,
+        0.01891545948402959
+      ],
+      "joint_band95": [
+        -0.007852296952929562,
+        0.02269022653874965
+      ]
+    },
+    "chex128_1536_average_precision": {
+      "point": 0.003786885055916872,
+      "pointwise_ci95": [
+        -0.013732706648923456,
+        0.02092523504849588
+      ],
+      "joint_band95": [
+        -0.019443163759727457,
+        0.0270169338715612
+      ]
+    },
+    "chex128_3072_auroc": {
+      "point": 0.025111106302456943,
+      "pointwise_ci95": [
+        0.014862342289615674,
+        0.03599789591273306
+      ],
+      "joint_band95": [
+        0.010801678402817214,
+        0.03942053420209667
+      ]
+    },
+    "chex128_3072_average_precision": {
+      "point": 0.023931176582921987,
+      "pointwise_ci95": [
+        0.007144781108532734,
+        0.04079437573591311
+      ],
+      "joint_band95": [
+        0.0016004947431928589,
+        0.04626185842265111
+      ]
+    }
+  },
+  "family": {
+    "contrasts": [
+      "score14_512_auroc",
+      "score14_512_average_precision",
+      "score14_1536_auroc",
+      "score14_1536_average_precision",
+      "score14_3072_auroc",
+      "score14_3072_average_precision",
+      "chex128_512_auroc",
+      "chex128_512_average_precision",
+      "chex128_1536_auroc",
+      "chex128_1536_average_precision",
+      "chex128_3072_auroc",
+      "chex128_3072_average_precision"
+    ],
+    "critical_value": 2.635749421522858,
+    "method": "Centered standardized maximum absolute bootstrap deviation over all 12 contrasts; approximate simultaneous band"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "analysis": "Post-hoc H_F: other-state minus explicit-state difference in matched-minus-explicit fusion AUROC contrasts",
+  "primary_setting": "CheXpert PCA128; logistic; N=3072; mean of 20 per-fit metrics",
+  "point": 0.025826153745892033,
+  "ci95": [
+    0.0017319726948787251,
+    0.0505887482667343
+  ],
+  "source_points": {
+    "explicit_report": 0.011906255551607514,
+    "other_report_states": 0.03773240929749955
+  },
+  "draws": 2000,
+  "seed": 20262910,
+  "conditioning": "Fixed fitted models; shared patient-bootstrap rows across groups; exploratory spectrum-dependent AUROC contrast, not causal interaction or pooled-AUROC decomposition"
+}
