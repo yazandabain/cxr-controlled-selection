@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cxr-controlled-selection"
+version = "0.1.0"
+description = "Code-only toolkit for controlled report-conditioned training selection"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy==2.4.3",
+    "pandas==2.3.3",
+    "scipy==1.17.1",
+    "scikit-learn==1.8.0",
+]
+
+[project.optional-dependencies]
+trees = ["xgboost==3.2.0"]
+figures = ["matplotlib==3.10.8"]
+test = ["PyMuPDF==1.28.0", "PyYAML==6.0.3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]

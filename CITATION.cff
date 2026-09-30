@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this code, cite this software release. This is not a paper citation."
+title: "CXR Controlled Selection"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Al-Dabain
+    given-names: Yazan
+repository-code: "https://github.com/yazandabain/cxr-controlled-selection"
+abstract: "Analysis helpers and reviewed aggregate results for report-conditioned training eligibility, class-matched sampling, model fitting and patient-paired evaluation. Includes synthetic method tests and aggregate table and figure replay."
+keywords:
+  - chest radiography
+  - training selection
+  - multimodal evaluation
+  - reproducibility
